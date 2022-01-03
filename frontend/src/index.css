@@ -3,9 +3,16 @@
 @tailwind utilities;
 
 body {
-  font-family: "Lato", sans-serif;
+  font-family: "Segoe UI", sans-serif;
 }
 
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+.active-profile-btn {
+  background-color: #fc766a;
+}
+.not-active-profile-btn {
+  color: #5b84b1;
 }

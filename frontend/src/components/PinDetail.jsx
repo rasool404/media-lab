@@ -7,6 +7,7 @@ import { client, urlFor } from "../client";
 import MasonryLayout from "./MasonryLayout";
 import { pinDetailMorePinQuery, pinDetailQuery } from "../utils/data";
 import Spinner from "./Spinner";
+import { getLocation } from "../utils/getLocation";
 
 const PinDetail = ({ user }) => {
   const { pinId } = useParams();
@@ -21,7 +22,6 @@ const PinDetail = ({ user }) => {
     if (query) {
       client.fetch(`${query}`).then((data) => {
         setPinDetail(data[0]);
-        console.log(data);
         if (data[0]) {
           const query1 = pinDetailMorePinQuery(data[0]);
           client.fetch(query1).then((res) => {
@@ -89,7 +89,7 @@ const PinDetail = ({ user }) => {
                 </a>
               </div>
               <a href={pinDetail.destination} target="_blank" rel="noreferrer">
-                {pinDetail.destination?.slice(8)}
+                {getLocation(pinDetail.destination).hostname}
               </a>
             </div>
             <div>

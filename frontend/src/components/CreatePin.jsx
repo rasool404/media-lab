@@ -92,11 +92,13 @@ const CreatePin = ({ user }) => {
         <div className="bg-secondaryColor p-3 flex flex-0.7 w-full">
           <div className=" flex justify-center items-center flex-col border-2 border-dotted border-gray-300 p-3 w-full h-420">
             {loading && <Spinner />}
-            {wrongImageType && <p>It&apos;s wrong file type.</p>}
+            {wrongImageType && (
+              <p className="text-red-500">It&apos;s wrong file type.</p>
+            )}
             {!imageAsset ? (
               // eslint-disable-next-line jsx-a11y/label-has-associated-control
               <label>
-                <div className="flex flex-col items-center justify-center h-full">
+                <div className="flex flex-col items-center justify-center h-full cursor-pointer">
                   <div className="flex flex-col justify-center items-center">
                     <p className="font-bold text-2xl">
                       <AiOutlineCloudUpload />
@@ -177,15 +179,16 @@ const CreatePin = ({ user }) => {
                 onChange={(e) => {
                   setCategory(e.target.value);
                 }}
-                className="outline-none w-4/5 text-base border-b-2 border-gray-200 p-2 rounded-md cursor-pointer"
+                className="w-4/5 text-base border-2 border-gray-200 p-2 rounded-md cursor-pointer"
               >
                 <option value="others" className="sm:text-bg bg-white">
                   Select Category
                 </option>
-                {categories.map((item) => (
+                {categories.map((item, i) => (
                   <option
                     className="text-base border-0 outline-none capitalize bg-white text-black "
                     value={item.name}
+                    key={i}
                   >
                     {item.name}
                   </option>
@@ -196,7 +199,7 @@ const CreatePin = ({ user }) => {
               <button
                 type="button"
                 onClick={savePin}
-                className="bg-red-500 text-white font-bold p-2 rounded-full w-28 outline-none"
+                className="bg-red-400 text-white font-bold p-2 rounded-full w-28 outline-none"
               >
                 Save Pin
               </button>

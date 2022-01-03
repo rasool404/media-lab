@@ -14,9 +14,9 @@ import Spinner from "./Spinner";
 import { fetchUser } from "../utils/fetchUser";
 
 const activeBtnStyles =
-  "bg-red-500 text-white font-bold p-2 rounded-full w-20 outline-none";
+  "active-profile-btn bg-red-500 text-white font-bold p-2 rounded-full w-20 outline-none";
 const notActiveBtnStyles =
-  "bg-primary mr-4 text-black font-bold p-2 rounded-full w-20 outline-none";
+  "not-active-profile-btn bg-primary mr-4 text-black font-bold p-2 rounded-full w-20 outline-none";
 
 const UserProfile = () => {
   const [user, setUser] = useState();
@@ -66,11 +66,11 @@ const UserProfile = () => {
           <div className="flex flex-col justify-center items-center">
             <img
               className=" w-full h-370 2xl:h-510 shadow-lg object-cover"
-              src="https://source.unsplash.com/1600x900/?nature,photography,technology"
+              src="https://source.unsplash.com/1600x900/?nature,photography,technology,architecture"
               alt="user-pic"
             />
             <img
-              className="rounded-full w-20 h-20 -mt-10 shadow-xl object-cover"
+              className="rounded-full -mt-10 shadow-xl object-cover"
               src={user.image}
               alt="user-pic"
             />

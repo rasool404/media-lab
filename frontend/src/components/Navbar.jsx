@@ -36,6 +36,8 @@ function Navbar({ searchTerm, setSearchTerm, user }) {
         </div>
       </div>
     );
+  } else {
+    return null;
   }
 }
 
